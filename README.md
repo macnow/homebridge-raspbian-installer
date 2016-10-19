@@ -1,1 +1,1 @@
-# homebridge-rpi-install
+# homebridge-raspberrypi-installer
