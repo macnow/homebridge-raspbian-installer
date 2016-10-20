@@ -1,0 +1,10 @@
+{
+     "platforms": [
+         {
+         "platform": "BelkinWeMo",
+         "name": "WeMo Platform",
+         "noMotionTimer": 60,
+         "ignoredDevices": []
+         }
+     ]
+}

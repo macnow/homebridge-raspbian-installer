@@ -5,10 +5,6 @@
         "port": 51826,
         "pin": "031-45-154"
     },
-
-    "accessories": [
-    ],
-
-    "platforms": [
-    ]
+    "accessories": [],
+    "platforms": []
 }

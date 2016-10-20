@@ -23,14 +23,16 @@ cd -
 cd /usr/lib/node_modules/hap-nodejs/node_modules/mdns
 sudo node-gyp BUILDTYPE=Release rebuild
 cd -
+sudo npm install -g json
 sudo useradd --system --user-group homebridge
 sudo mkdir -p /var/homebridge
-sudo cp files/config.json /var/homebridge/config.json
+sudo cp configs/config.json /var/homebridge/config.json
 sudo chown -R homebridge:homebridge /var/homebridge/
 sudo cp files/homebridge /etc/default/homebridge
 sudo cp files/homebridge.service /etc/systemd/system/homebridge.service
 sudo systemctl daemon-reload
 sudo systemctl enable homebridge
 sudo systemctl start homebridge
-sudo systemctl status homebridge
-
+chmod +x scripts/*
+chmod +x configure.sh
+./configure.sh
