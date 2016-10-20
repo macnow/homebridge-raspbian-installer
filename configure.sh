@@ -41,11 +41,18 @@ if [[ $output != "" || $output == "" ]]
 then
     if [[ $output -eq 0 ]]
     then
-        echo $choose|json -4 > /tmp/config.json$$
-        sudo mv -f /tmp/config.json$$ /var/homebridge/config.json
-	sudo chown homebridge:homebridge /var/homebridge/config.json
-	dialog --title "Homebridge configure" --backtitle "Homebridge configurator" \
-        --stdout --msgbox "Configuration saved!" 5 50
+        echo $choose|json -4 > /tmp/config.json$$ 
+        json_output=$?
+	if [[ $json_output -eq 0 ]]
+        then
+            sudo mv -f /tmp/config.json$$ /var/homebridge/config.json
+            sudo chown homebridge:homebridge /var/homebridge/config.json
+            dialog --title "Homebridge configure" --backtitle "Homebridge configurator" \
+            --stdout --msgbox "Configuration saved!" 5 50
+        else
+            dialog --title "Homebridge configure" --backtitle "Homebridge configurator" \
+            --stdout --msgbox "ERROR: Configuration not saved!" 5 50
+	fi
         menu_main
     else
         menu_main
