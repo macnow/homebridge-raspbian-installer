@@ -4,7 +4,7 @@ set -x
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y git make libavahi-compat-libdnssd-dev
+sudo apt-get install -y git make libavahi-compat-libdnssd-dev dialog
 
 if [ "x$(uname -m)" != "xarmv6l" ]; then
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -16,14 +16,13 @@ else
     sudo cp -R * /usr/
     cd -
 fi
-sudo npm install -g --unsafe-perm homebridge hap-nodejs node-gyp
+sudo npm install -g --unsafe-perm homebridge hap-nodejs node-gyp json
 cd /usr/lib/node_modules/homebridge/
 sudo npm install --unsafe-perm bignum
 cd -
 cd /usr/lib/node_modules/hap-nodejs/node_modules/mdns
 sudo node-gyp BUILDTYPE=Release rebuild
 cd -
-sudo npm install -g json
 sudo useradd --system --user-group homebridge
 sudo mkdir -p /var/homebridge
 sudo cp configs/config.json /var/homebridge/config.json
