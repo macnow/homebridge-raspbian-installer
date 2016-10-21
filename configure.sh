@@ -68,7 +68,7 @@ choose=$(dialog --title "Homebridge plugins installer" --backtitle "Homebridge c
 1 "Belkin WeMo Platform" \
 2 "Orvibo Smart Socket Platform" \
 3 "TPLink HS100/HS110 WiFi Smart Plug" \
-4 "<-- Back to prev menu" )
+4 "< Back to prev menu" )
 
 output=$?
 if [[ $output != "" || $output == "" ]]
@@ -96,7 +96,7 @@ choose=$(dialog --title "$1" --backtitle "Homebridge configuration tool by @macn
 --stdout --no-cancel --menu "" 13 50 17 \
 1 "Install plugin" \
 2 "Update plugin" \
-3 "<-- Back to prev menu" )
+3 "< Back to prev menu" )
 
 output=$?
 if [[ $output != "" || $output == "" ]]
@@ -105,12 +105,12 @@ then
     then
 	dialog --title "$1" --backtitle "Homebridge configuration tool by @macnow - Plugins Installer - $1" \
         --stdout --infobox "Installing plugin...\nThis may take several minutes." 4 50
-	#sudo npm install -g $1
+	sudo npm install -g $1
 	scripts/config-merge.py /var/homebridge/config.json configs/$1.json > /tmp/config.json$$
         sudo mv -f /tmp/config.json$$ /var/homebridge/config.json
 	sudo chown homebridge:homebridge /var/homebridge/config.json
 	dialog --title "$1" --backtitle "Homebridge configuration tool by @macnow - Plugins Installer - $1" \
-        --stdout --msgbox "$1 plugin installed." 4 50
+        --stdout --msgbox "$1 plugin installed." 5 50
 	menu_plugins
     elif [[ $choose -eq 2 ]]
     then
@@ -118,7 +118,7 @@ then
         --stdout --infobox "Updating plugin...\nThis may take several minutes..." 4 50
 	sudo npm update -g $1
 	dialog --title "$1" --backtitle "Homebridge configuration tool by @macnow - Plugins Installer - $1" \
-        --stdout --msgbox "$1 plugin updated." 4 50
+        --stdout --msgbox "$1 plugin updated." 5 50
 	menu_plugins
     else
         menu_plugins
