@@ -3,9 +3,7 @@
 ### Installation
 
 ```
-git clone https://github.com/macnow/homebridge-raspbian-installer.git
-cd homebridge-raspbian-installer
-./install.sh
+bash <(curl -s https://raw.githubusercontent.com/gismo141/homebridge-raspbian-installer/master/install.sh)
 ```
 
 ### Configuration
