@@ -6,7 +6,7 @@ UNAME=`uname -m`
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y git make libavahi-compat-libdnssd-dev dialog
+sudo apt-get install -y make libavahi-compat-libdnssd-dev dialog
 
 case "$UNAME" in
     "armv6l")
