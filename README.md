@@ -3,7 +3,7 @@
 ### Installation
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/macnow/homebridge-raspbian-installer/master/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/macnow/homebridge-raspbian-installer/master/download.sh)
 ```
 
 ### Configuration
